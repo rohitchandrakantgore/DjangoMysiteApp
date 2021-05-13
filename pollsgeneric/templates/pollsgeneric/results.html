@@ -1,0 +1,11 @@
+<h1>{{ questiongeneric.question_text }}</h1>
+
+<ul>
+    {% for choice in questiongeneric.choicegeneric_set.all %}
+    <li>
+        {{ choice.choice_text }} -- {{choice.votes}} vote {{ choice.votes|pluralize }}
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'pollsgeneric:detail_generic' questiongeneric.id %}"> Vote Again?</a>
